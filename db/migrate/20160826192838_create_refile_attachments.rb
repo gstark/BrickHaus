@@ -6,9 +6,8 @@ class CreateRefileAttachments < ActiveRecord::Migration
     add_index :refile_attachments, :namespace
   end
 
-  def drop
+  def down
     remove_index :refile_attachments, :namespace
     drop_table :refile_attachments
   end
 end
-
