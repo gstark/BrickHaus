@@ -33,29 +33,35 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-        <%= link_to "Buy", homes_path, class: "navbar-brand" %>
+          <%= link_to "Buy", homes_path, class: "navbar-brand" %>
         </ul>
         <ul class="nav navbar-nav">
-        <%= link_to "Sell", new_home_path, class: "navbar-brand" %>
+          <%= link_to "Sell", new_home_path, class: "navbar-brand" %>
         </ul>
         <ul class="nav navbar-nav">
-        <%= link_to "Agents", '#', class: "navbar-brand" %>
+          <%= link_to "Agents", '#', class: "navbar-brand" %>
         </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" class="navbar-brand">Sign Up</a></li>
-        <li><a href="#" class="navbar-brand">Log In</a></li>
-        <!-- Commented out to add once logged in -->
-        <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul> -->
-        <!-- </li> -->
-      </ul>
+        <div class="nav navbar-nav navbar-right">
+          <%- if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          <%else%>
+            <ul class="nav navbar-nav">
+              <%=link_to "Sign up", new_user_registration_path, class: "navbar-brand"%>
+            </ul>
+            <ul class="nav navbar-nav">
+              <%=link_to "Log in", new_user_session_path, class: "navbar-brand"%>
+            </ul>
+          <%end%>
+        </div>
       </div>
       </div>
     </div>
