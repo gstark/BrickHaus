@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# player = Player.create!(name: "Gavin",
+#                         age: 21,
+#                         profile_image: File.open(Rails.root.join("db/seeds/gavin.jpeg")))
+
+home = Home.create!(name: "home_id",
+                        profile_image: File.open(Rails.root.join("db/seeds/home_id.jpeg")))

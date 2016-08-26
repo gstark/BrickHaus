@@ -13,3 +13,6 @@ module BrickHaus
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+# Application must have sql as schema format to properly dump OID type.
+# config.active_record.schema_format = :sql

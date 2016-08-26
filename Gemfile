@@ -22,7 +22,6 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -49,3 +48,4 @@ gem 'bootstrap-generators', github: 'gstark/bootstrap-generators', branch: 'incl
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'kaminari'
+gem 'refile-postgres'

@@ -29,13 +29,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "#", class: "navbar-brand" do %>
-          BrickHaus
-        <% end %>
+        <%= link_to "BrickHaus", root_path, class: "navbar-brand" %>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Home", "#" %></li>
+        <%= link_to "Buy", homes_path, class: "navbar-brand" %>
         </ul>
       </div>
     </div>
@@ -58,7 +56,7 @@
                     <div class="footer-left">
                         <p class="text-muted">Copyright © 2016 BrickHaus. All rights reserved.
                           <%= link_to "http://www.hud.gov/offices/fheo/index.cfm" do %>
-                            <%= image_tag('equal_housing.png', size: "12x12") %> Fair Housing and Equal Opportunity.
+                            <%= image_tag('equal_housing.png', size: "13x13") %> Fair Housing and Equal Opportunity.
                           <% end %>
                           </p>
                     </div>
