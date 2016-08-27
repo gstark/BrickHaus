@@ -1,7 +1,8 @@
 class HomesController < ApplicationController
   # GET /homes
   def index
-    @homes = Home.all
+    @homes = params[:search] ? Home.where("description LIKE ?", "%#{params["search"]["description"]}%") :
+                               Home.all.order(price: :asc)
   end
 
   # GET /homes/1
@@ -52,4 +53,9 @@ class HomesController < ApplicationController
   def home_params
     params.require(:home).permit(:address, :beds, :baths, :square_footage, :price, :description)
   end
+
+  # def build_response_to_search_params(params)
+  #   Home.where("price "), "%#{params[:search]}%") :
+  # end
+
 end
