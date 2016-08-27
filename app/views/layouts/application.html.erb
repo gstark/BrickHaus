@@ -39,11 +39,7 @@
           <%= link_to "Sell", new_home_path, class: "navbar-brand" %>
         </ul>
         <ul class="nav navbar-nav">
-<<<<<<< HEAD
-          <%= link_to "Agents", '#', class: "navbar-brand" %>
-=======
-        <%= link_to "Agents", '/user/show', class: "navbar-brand" %>
->>>>>>> ecd9dd50bb4d335f7f19cadce775467b97f084d9
+          <li><%= link_to "Agents", '/users', class: "navbar-brand" %></li>
         </ul>
         <div class="nav navbar-nav navbar-right">
           <%- if user_signed_in? %>
