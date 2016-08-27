@@ -56,23 +56,46 @@ class HomesController < ApplicationController
 
   def build_response_to_search_params(params)
     homes = Home.all
+
+    # price
+    homes = if !params[:search][:price][:max].empty? && !params[:search][:price][:min].empty?
+              homes.where("price >= ? AND price <= ?", params[:search][:price][:min], params[:search][:price][:max])
+            elsif !params[:search][:price][:max].empty?
+              homes.where("price <= ?", params[:search][:price][:max])
+            elsif !params[:search][:price][:min].empty?
+              homes.where("price >= ?", params[:search][:price][:min])
+            else
+              homes
+            end
+
     # Square Footage
     homes = if !params[:search][:square_footage][:max].empty? && !params[:search][:square_footage][:min].empty?
-              homes.where("square_footage > ? AND square_footage < ?", params[:search][:square_footage][:min], params[:search][:square_footage][:max])
+              homes.where("square_footage >= ? AND square_footage <= ?", params[:search][:square_footage][:min], params[:search][:square_footage][:max])
             elsif !params[:search][:square_footage][:max].empty?
-              homes.where("square_footage < ?", params[:search][:square_footage][:max])
+              homes.where("square_footage <= ?", params[:search][:square_footage][:max])
             elsif !params[:search][:square_footage][:min].empty?
-              homes.where("square_footage > ?", params[:search][:square_footage][:min])
+              homes.where("square_footage >= ?", params[:search][:square_footage][:min])
             else
               homes
             end
     # beds
     homes = if !params[:search][:beds][:max].empty? && !params[:search][:beds][:min].empty?
-              homes.where("beds > ? AND beds < ?", params[:search][:beds][:min], params[:search][:beds][:max])
+              homes.where("beds >= ? AND beds <= ?", params[:search][:beds][:min], params[:search][:beds][:max])
             elsif !params[:search][:beds][:max].empty?
-              homes.where("beds < ?", params[:search][:beds][:max])
+              homes.where("beds <= ?", params[:search][:beds][:max])
             elsif !params[:search][:beds][:min].empty?
-              homes.where("beds > ?", params[:search][:beds][:min])
+              homes.where("beds >= ?", params[:search][:beds][:min])
+            else
+              homes
+            end
+
+    # baths
+    homes = if !params[:search][:baths][:max].empty? && !params[:search][:baths][:min].empty?
+              homes.where("baths >= ? AND baths <= ?", params[:search][:baths][:min], params[:search][:baths][:max])
+            elsif !params[:search][:baths][:max].empty?
+              homes.where("baths <= ?", params[:search][:baths][:max])
+            elsif !params[:search][:baths][:min].empty?
+              homes.where("baths >= ?", params[:search][:baths][:min])
             else
               homes
             end
