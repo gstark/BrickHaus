@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
 
   # GET /homes
   def index
@@ -11,8 +11,6 @@ class HomesController < ApplicationController
 
   # GET /homes/1
   def show
-    return unless @user.user != current_user
-    @home = Home.find(params[:id])
   end
 
   # GET /homes/new
@@ -22,7 +20,6 @@ class HomesController < ApplicationController
 
   # GET /homes/1/edit
   def edit
-    @home = Home.find(params[:id])
   end
 
   # POST /homes
@@ -38,7 +35,6 @@ class HomesController < ApplicationController
 
   # PATCH/PUT /homes/1
   def update
-    @home = Home.find(params[:id])
     if @home.update(home_params)
       redirect_to @home, notice: 'Home was successfully updated.'
     else
@@ -48,12 +44,15 @@ class HomesController < ApplicationController
 
   # DELETE /homes/1
   def destroy
-    @home = Home.find(params[:id])
     @home.delete
     redirect_to homes_url, notice: 'Home was successfully destroyed.'
   end
 
   private
+  def set_home
+    @home = Home.find(params[:id])
+  end
+
   # Only allow a trusted parameter "white list" through.
   def home_params
     params.require(:home).permit(:main_image, :additional_image, :address, :beds, :baths, :square_footage, :price, :description)
