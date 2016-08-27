@@ -4,6 +4,14 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.check_box :is_agent, autocomplete: "off" %> <%= f.label "Are you an agent?" %><br />
+  </div>
+
+  <div class="form-group field">
+      <%= f.attachment_field :profile_image %><br />
+  </div>
+
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autocomplete: "off" %>
   </div>
@@ -34,10 +42,6 @@
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.check_box :is_agent, autocomplete: "off" %> <%= f.label "Are you an agent?" %><br />
   </div>
 
   <div class="actions">
