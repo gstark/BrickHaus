@@ -140,7 +140,8 @@ CREATE TABLE users (
     phone character varying,
     address character varying,
     is_agent boolean,
-    name character varying
+    name character varying,
+    profile_image_id character varying
 );
 
 
@@ -251,6 +252,6 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20160825231620'), ('20160826163034'), ('20160826163432'), ('20160826192838'), ('20160826195458');
+INSERT INTO schema_migrations (version) VALUES ('20160825231620'), ('20160826163034'), ('20160826163432'), ('20160826192838'), ('20160826195458'), ('20160826224522');
 
 

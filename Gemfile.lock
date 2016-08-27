@@ -190,6 +190,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  refile
   refile-postgres
   sass-rails (~> 5.0)
   turbolinks (~> 5)
