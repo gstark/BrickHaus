@@ -25,6 +25,7 @@ class HomesController < ApplicationController
   # POST /homes
   def create
     @home = Home.new(home_params)
+    @home.owner = current_user
 
     if @home.save
       redirect_to @home, notice: 'Home was successfully created.'

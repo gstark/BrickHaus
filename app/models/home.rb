@@ -1,5 +1,5 @@
 class Home < ApplicationRecord
-  belongs_to :agent, class_name: "User"
+  belongs_to :agent, class_name: "User", optional: true
   belongs_to :owner, class_name: "User"
 
   # Refile home image
