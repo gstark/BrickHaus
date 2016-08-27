@@ -1,4 +1,8 @@
 class HomesController < ApplicationController
+  before_action :set_home, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user!
+
   # GET /homes
   def index
     @homes = params[:search] ? build_response_to_search_params(params) :
@@ -7,6 +11,7 @@ class HomesController < ApplicationController
 
   # GET /homes/1
   def show
+    return unless @user.user != current_user
     @home = Home.find(params[:id])
   end
 
