@@ -4,10 +4,10 @@ home = Home.create!(address: "260 1st Ave S, St. Petersburg, FL 33701",
                     square_footage: 5000,
                     price: 750_000,
                     description: "Ancient, leaky, squeaky classic building",
-                    # main_image: File.open(Rails.root.join("db/seeds/station_house_1.jpg"))
+                    main_image: File.open(Rails.root.join("db/seeds/station_house_1.jpg"))
                     )
 
-home = Home.create!(address: "Bayshore Blvd, Tampa, FL 33611",
+home = Home.create!(address: "4621 Bayshore Blvd, Tampa, FL 33611",
                     beds: 6,
                     baths: 9,
                     square_footage: 8_930,
@@ -22,5 +22,6 @@ home = Home.create!(address: "123 Kebert Way, Bradenton, FL 34201",
                     square_footage: 120_00,
                     price: 22_000_000,
                     description: "Kebert Estate - Stay away developer bums!",
-                    main_image: File.open(Rails.root.join("db/seeds/3-med.jpg"))
+                    main_image: File.open(Rails.root.join("db/seeds/3-med.jpg")),
+                    additional_image: File.open(Rails.root.join("db/seeds/Alan2.jpg"))
                     )
