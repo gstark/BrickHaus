@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'user/show'
-
   resources :homes
-  devise_for :user
+  devise_for :user, controllers: { registrations: 'registrations' }
+
+  devise_scope :user do
+    get 'user/:id' => 'registrations#show'
+    get 'users'    => 'registrations#index'
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/homepage/index'
