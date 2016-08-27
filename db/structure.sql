@@ -58,7 +58,9 @@ CREATE TABLE homes (
     price integer,
     description character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    main_image_id character varying,
+    additional_image_id character varying
 );
 
 
@@ -252,6 +254,6 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20160825231620'), ('20160826163034'), ('20160826163432'), ('20160826192838'), ('20160826195458'), ('20160826224522');
+INSERT INTO schema_migrations (version) VALUES ('20160825231620'), ('20160826163034'), ('20160826163432'), ('20160826192838'), ('20160826195458'), ('20160826224522'), ('20160827174549');
 
 
