@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
- # Refile profile image for agents
+  # Refile profile image for agents
   attachment :profile_image
 end
