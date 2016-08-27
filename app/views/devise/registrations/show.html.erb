@@ -1,12 +1,19 @@
 <p>
+  <%= image_tag attachment_url(@user, :profile_image) %>
+</p>
+
+<p>
   <%= @user.name %>
 </p>
+
 <p>
   <%= @user.phone %>
 </p>
+
 <p>
   <%= @user.address %>
 </p>
+
 <p>
   <%= @user.email %>
 </p>
