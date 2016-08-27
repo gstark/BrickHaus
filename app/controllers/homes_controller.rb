@@ -44,7 +44,7 @@ class HomesController < ApplicationController
   # DELETE /homes/1
   def destroy
     @home = Home.find(params[:id])
-    @home.destroy
+    @home.delete
     redirect_to homes_url, notice: 'Home was successfully destroyed.'
   end
 
