@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   # GET /homes
   def index
-    @homes = params[:search] ? Home.where("description LIKE ?", "%#{params["search"]["description"]}%") :
+    @homes = params[:search] ? build_response_to_search_params(params) :
                                Home.all.order(price: :asc)
   end
 
@@ -54,8 +54,27 @@ class HomesController < ApplicationController
     params.require(:home).permit(:address, :beds, :baths, :square_footage, :price, :description)
   end
 
-  # def build_response_to_search_params(params)
-  #   Home.where("price "), "%#{params[:search]}%") :
-  # end
-
+  def build_response_to_search_params(params)
+    homes = Home.all
+    # Square Footage
+    homes = if !params[:search][:square_footage][:max].empty? && !params[:search][:square_footage][:min].empty?
+              homes.where("square_footage > ? AND square_footage < ?", params[:search][:square_footage][:min], params[:search][:square_footage][:max])
+            elsif !params[:search][:square_footage][:max].empty?
+              homes.where("square_footage < ?", params[:search][:square_footage][:max])
+            elsif !params[:search][:square_footage][:min].empty?
+              homes.where("square_footage > ?", params[:search][:square_footage][:min])
+            else
+              homes
+            end
+    # beds
+    homes = if !params[:search][:beds][:max].empty? && !params[:search][:beds][:min].empty?
+              homes.where("beds > ? AND beds < ?", params[:search][:beds][:min], params[:search][:beds][:max])
+            elsif !params[:search][:beds][:max].empty?
+              homes.where("beds < ?", params[:search][:beds][:max])
+            elsif !params[:search][:beds][:min].empty?
+              homes.where("beds > ?", params[:search][:beds][:min])
+            else
+              homes
+            end
+  end
 end

@@ -7,7 +7,14 @@
 </div>
 
 <%= form_tag homes_path, method: "get" do %>
-  <%= text_field_tag "search[description]"%>
+  <label> Square Footage Min</label>
+  <%= number_field_tag "search[square_footage][min]"%>
+  <label>Square Footage Max</label>
+  <%= number_field_tag "search[square_footage][max]"%>
+  <label>Beds Min</label>
+  <%= number_field_tag "search[beds][min]"%>
+  <label> Beds Max</label>
+  <%= number_field_tag "search[beds][max]"%>
   <%= submit_tag("Search") %>
 <% end %>
 
