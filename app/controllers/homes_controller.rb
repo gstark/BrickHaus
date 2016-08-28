@@ -20,6 +20,7 @@ class HomesController < ApplicationController
 
   # GET /homes/1/edit
   def edit
+    redirect_to homes_path unless @home.user_authorized?(current_user)
   end
 
   # POST /homes
@@ -36,6 +37,8 @@ class HomesController < ApplicationController
 
   # PATCH/PUT /homes/1
   def update
+    redirect_to homes_path unless @home.user_authorized?(current_user)
+
     if @home.update(home_params)
       redirect_to @home, notice: 'Home was successfully updated.'
     else
@@ -45,6 +48,8 @@ class HomesController < ApplicationController
 
   # DELETE /homes/1
   def destroy
+    redirect_to homes_path unless @home.user_authorized?(current_user)
+
     @home.delete
     redirect_to homes_url, notice: 'Home was successfully destroyed.'
   end
