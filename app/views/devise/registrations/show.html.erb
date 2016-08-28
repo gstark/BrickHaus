@@ -1,21 +1,23 @@
-<p>
-  <%= image_tag attachment_url(@user, :profile_image) %>
-</p>
+<div class="container">
+  <p>
+    <%= image_tag attachment_url(@user, :profile_image) %>
+  </p>
 
-<p>
-  <%= @user.name %>
-</p>
+  <p>
+    <%= @user.name %>
+  </p>
 
-<p>
-  <%= @user.phone %>
-</p>
+  <p>
+    <%= @user.phone %>
+  </p>
 
-<p>
-  <%= @user.address %>
-</p>
+  <p>
+    <%= @user.address %>
+  </p>
 
-<p>
-  <%= @user.email %>
-</p>
+  <p>
+    <%= @user.email %>
+  </p>
 
-<%= link_to "Edit", edit_user_registration_path %>
+  <%= link_to "Edit", edit_user_registration_path %>
+</div>
