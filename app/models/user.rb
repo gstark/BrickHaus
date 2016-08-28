@@ -6,8 +6,4 @@ class User < ApplicationRecord
 
   # Refile profile image for agents
   attachment :profile_image
-
-  def user_authorized?(asking_user)
-    id == asking_user.id
-  end
 end
