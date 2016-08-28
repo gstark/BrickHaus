@@ -19,3 +19,18 @@
 @import 'bootstrap-social';
 @import "_variables";
 @import "body";
+
+// body {
+//   padding-top: 20px;
+// }
+.jumbotron {
+  height: 450px;
+  margin-top:-10px;
+
+}
+.jumbo-container {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
