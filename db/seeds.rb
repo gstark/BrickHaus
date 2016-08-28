@@ -3,7 +3,7 @@ home = Home.create!(address: "260 1st Ave S, St. Petersburg, FL 33701",
                     baths: 3,
                     square_footage: 5000,
                     price: 750_000,
-                    description: "The Station House, an ancient, leaky, squeaky classic building that many wannabe developers call home",
+                    description: "The Station House, an ancient, leaky, squeaky classic building that many wannabe front and backend developers call home. WiFi is now rock solid!",
                     main_image: File.open(Rails.root.join("db/seeds/house1.jpg")),
                     additional_image: File.open(Rails.root.join("db/seeds/house21.jpg"))
                     )
