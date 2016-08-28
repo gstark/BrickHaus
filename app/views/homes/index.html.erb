@@ -6,59 +6,41 @@
     <% end %>
     <h1>Listing homes</h1>
   </div>
-  <form class="form-horizontal">
+  <form class="form-inline">
     <%= form_tag homes_path, method: "get" do %>
-    <div class="row">
     <div class="form-group">
-      <label class="col-sm-3 control-label"> Price Min</label>
-      <div class="col-sm-1">
-        <%= number_field_tag "search[price][min]"%>
-      </div>
+      <label> Price Min</label>
+      <%= number_field_tag "search[price][min]", class: "form-control" %>
     </div>
     <div class="form-group">
-      <label class="col-sm-3 control-label"> Price Max</label>
-      <div class="col-sm-1">
-        <%= number_field_tag "search[price][max]"%>
-      </div>
+      <label> Price Max</label>
+      <%= number_field_tag "search[price][max]", class: "form-control" %>
     </div>
     <div class="form-group">
-      <label class="col-sm-3 control-label"> Square Ft Min</label>
-      <div class="col-sm-1">
-        <%= number_field_tag "search[square_footage][min]"%>
-      </div>
+      <label> Square Ft Min</label>
+      <%= number_field_tag "search[square_footage][min]", class: "form-control" %>
     </div>
     <div class="form-group">
-      <label class="col-sm-3 control-label"> Square Ft Max</label>
-      <div class="col-sm-1">
-        <%= number_field_tag "search[square_footage][max]"%>
-      </div>
+      <label> Square Ft Max</label>
+      <%= number_field_tag "search[square_footage][max]", class: "form-control" %>
     </div>
     <div class="form-group">
-      <label class="col-sm-3 control-label"> Beds Min</label>
-      <div class="col-sm-1">
-        <%= number_field_tag "search[beds][min]"%>
-      </div>
+      <label> Beds Min</label>
+      <%= number_field_tag "search[beds][min]", class: "form-control" %>
     </div>
     <div class="form-group">
-      <label class="col-sm-3 control-label"> Beds Max</label>
-      <div class="col-sm-1">
-        <%= number_field_tag "search[beds][max]"%>
-      </div>
+      <label> Beds Max</label>
+      <%= number_field_tag "search[beds][max]", class: "form-control" %>
     </div>
     <div class="form-group">
-      <label class="col-sm-3 control-label"> Baths Min</label>
-      <div class="col-sm-1">
-        <%= number_field_tag "search[baths][min]"%>
-      </div>
+      <label> Baths Min</label>
+      <%= number_field_tag "search[baths][min]", class: "form-control" %>
     </div>
     <div class="form-group">
-      <label class="col-sm-3 control-label"> Baths Max</label>
-      <div class="col-sm-1">
-        <%= number_field_tag "search[baths][max]"%>
-      </div>
+      <label> Baths Max</label>
+      <%= number_field_tag "search[baths][max]", class: "form-control" %>
     </div>
     <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-10">
         <button type="submit" class="btn btn-default">Submit</button>
       </div>
     </div>
