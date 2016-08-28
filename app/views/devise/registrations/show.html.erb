@@ -1,6 +1,6 @@
 <div class="container">
   <p>
-    <%= image_tag attachment_url(@user, :profile_image) %>
+    <%= attachment_image_tag(@user, :profile_image, :fill, size: "300x300", fallback: "silhouette.png") %>
   </p>
 
   <p>
