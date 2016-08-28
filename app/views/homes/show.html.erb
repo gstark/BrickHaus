@@ -35,7 +35,13 @@
   <dt>Description:</dt>
   <dd><%= @home.description %></dd>
 
+
+  <% if @home.owner %>
   <dt>Owner:</dt>
   <dd><%= @home.owner.name %></dd>
+  <%else%>
+  <dt>Owner</dt>
+  <dd>None??</dd>
+  <% end %>
 
 </dl>
