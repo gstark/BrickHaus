@@ -14,9 +14,9 @@ home = Home.create!(address: "4621 Bayshore Blvd, Tampa, FL 33611",
                     square_footage: 8_930,
                     price: 13_900_000,
                     description: "estate property which epitomizes gracious, elegant and exclusive living. Known locally as the Stovall-Lee House, this South Tampa estate is the largest residential property on Tampa's famous and scenic Bayshore Boulevard N of Gandy. Meticulously restored and expanded over the years, the 6 bedroom, 9 full and 1 half-bath walled and gated estate boasts over 8,900 square feet of living space, on 2.6 acres overlooking the open Bay. Private and secluded.",
-                    main_image: File.open(Rails.root.join("db/seeds/house22.jpg")),
+                    main_image: File.open(Rails.root.join("db/seeds/house2.jpg")),
+                    additional_image: File.open(Rails.root.join("db/seeds/house22.jpg"))
                     )
-
 home = Home.create!(address: "123 Alan Kebert Way, Bradenton, FL 34201",
                     beds: 9,
                     baths: 12,
