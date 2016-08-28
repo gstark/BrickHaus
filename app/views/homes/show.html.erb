@@ -1,14 +1,48 @@
-<div class="page-header">
-  <%= link_to homes_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <%= link_to edit_home_path(@home), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show home</h1>
+<div class="container">
+  <div class="page-header">
+    <%= link_to homes_path, class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
+    <% end %>
+    <%= link_to edit_home_path(@home), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
+    <h2><%= @home.address %></h2>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-xs-8 col-sm-6">
+          <%= image_tag attachment_url(@home, :main_image) %>
+          <h3><%= @home.beds %> Bedrooms, <%= @home.baths %> bathrooms</h3>
+        </div>
+        <div class="col-xs-4 col-sm-6">
+          <% if @home.additional_image %>
+          <%= image_tag attachment_url(@home, :additional_image) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-9">
+      <h4><%= @home.square_footage %> square feet and only $<%= @home.price %></h4>
+    </div>
+  </div>
+  <p><%= @home.description %></p>
+
+        <% if @home.owner %>
+        <dt>Owner:</dt>
+        <dd><%= @home.owner.name %></dd>
+        <%else%>
+        <dt>associated agent</dt>
+        <dd>Agent's info to follow</dd>
+        <% end %>
 </div>
+<<<<<<< HEAD
 
 <%= image_tag attachment_url(@home, :main_image) %><br>
 
@@ -52,3 +86,5 @@
   <% end %>
 
 </dl>
+=======
+>>>>>>> e18d37fab4c527ff8edc17dd5f460874c1cc2744

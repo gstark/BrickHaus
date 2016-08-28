@@ -7,12 +7,24 @@
         <span class="input-group-btn">
           <button class="btn btn-default" type="button">Go!</button>
         </span>
-      </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="container"
-  <h1>Placeholder Homepage</h1>
-  
-</div>
+<div class="row">
+<% @last_three.each do |home| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= link_to home do %>
+      <%= attachment_image_tag(home, :main_image) %>
+      <% end%>
+      <div class="caption">
+        <%= link_to home do %>
+        <h3><%= home.address %></h3>
+        <% end%>
+        <p><%= home.description %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
