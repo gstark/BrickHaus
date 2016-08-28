@@ -10,38 +10,45 @@
   <h1>Show home</h1>
 </div>
 
-<%= image_tag attachment_url(@home, :main_image) %><br>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-xs-8 col-sm-6">
+        <%= image_tag attachment_url(@home, :main_image) %>
+      </div>
+      <div class="col-xs-4 col-sm-6">
+        <% if @home.additional_image %>
+        <%= image_tag attachment_url(@home, :additional_image) %>
+        <% end %>
+      </div>
+    </div>
+    <dl class="dl-horizontal">
+      <dt></dt>
+      <h1><dd><%= @home.address %></dd></h1>
 
-<% if @home.additional_image %>
-<%= image_tag attachment_url(@home, :additional_image) %>
-<% end %>
+      <dt>Beds:</dt>
+      <dd><%= @home.beds %></dd>
 
-<dl class="dl-horizontal">
-  <dt>Address:</dt>
-  <dd><%= @home.address %></dd>
+      <dt>Baths:</dt>
+      <dd><%= @home.baths %></dd>
 
-  <dt>Beds:</dt>
-  <dd><%= @home.beds %></dd>
+      <dt>Square footage:</dt>
+      <dd><%= @home.square_footage %></dd>
 
-  <dt>Baths:</dt>
-  <dd><%= @home.baths %></dd>
+      <dt>Price:</dt>
+      <dd><%= @home.price %></dd>
 
-  <dt>Square footage:</dt>
-  <dd><%= @home.square_footage %></dd>
-
-  <dt>Price:</dt>
-  <dd><%= @home.price %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @home.description %></dd>
+      <dt>Description:</dt>
+      <dd><%= @home.description %></dd>
 
 
-  <% if @home.owner %>
-  <dt>Owner:</dt>
-  <dd><%= @home.owner.name %></dd>
-  <%else%>
-  <dt>Owner</dt>
-  <dd>None??</dd>
-  <% end %>
-
-</dl>
+      <% if @home.owner %>
+      <dt>Owner:</dt>
+      <dd><%= @home.owner.name %></dd>
+      <%else%>
+      <dt>Owner</dt>
+      <dd>None??</dd>
+      <% end %>
+    </dl>
+  </div>
+</div>
