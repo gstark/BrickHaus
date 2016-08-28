@@ -86,6 +86,39 @@ ALTER SEQUENCE homes_id_seq OWNED BY homes.id;
 
 
 --
+-- Name: links; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE links (
+    id integer NOT NULL,
+    url character varying,
+    description character varying,
+    home_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: links_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE links_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE links_id_seq OWNED BY links.id;
+
+
+--
 -- Name: refile_attachments; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -179,6 +212,13 @@ ALTER TABLE ONLY homes ALTER COLUMN id SET DEFAULT nextval('homes_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY links ALTER COLUMN id SET DEFAULT nextval('links_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY refile_attachments ALTER COLUMN id SET DEFAULT nextval('refile_attachments_id_seq'::regclass);
 
 
@@ -206,6 +246,14 @@ ALTER TABLE ONLY homes
 
 
 --
+-- Name: links_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY links
+    ADD CONSTRAINT links_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: refile_attachments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -230,6 +278,13 @@ ALTER TABLE ONLY users
 
 
 --
+-- Name: index_links_on_home_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_links_on_home_id ON links USING btree (home_id);
+
+
+--
 -- Name: index_refile_attachments_on_namespace; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -251,11 +306,19 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 
 --
+-- Name: fk_rails_ea75f078c8; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY links
+    ADD CONSTRAINT fk_rails_ea75f078c8 FOREIGN KEY (home_id) REFERENCES homes(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20160825231620'), ('20160826163034'), ('20160826163432'), ('20160826192838'), ('20160826195458'), ('20160826224522'), ('20160827174549'), ('20160827231610');
+INSERT INTO schema_migrations (version) VALUES ('20160825231620'), ('20160826163034'), ('20160826163432'), ('20160826192838'), ('20160826195458'), ('20160826224522'), ('20160827174549'), ('20160827231610'), ('20160828184511');
 
 

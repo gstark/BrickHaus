@@ -35,6 +35,13 @@
   <dt>Description:</dt>
   <dd><%= @home.description %></dd>
 
+  <% unless @home.links.empty? %>
+    <dt>Links:</dt>
+    <% @home.links.each do |link| %>
+      <dd><%= link.description %></dd>
+    <% end %>
+  <% end %>
+
 
   <% if @home.owner %>
   <dt>Owner:</dt>
