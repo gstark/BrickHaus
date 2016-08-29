@@ -35,10 +35,16 @@
   <p><%= @home.description %></p>
 
         <% if @home.owner %>
-        <dt>Owner:</dt>
-        <dd><%= @home.owner.name %></dd>
-        <%else%>
-        <dt>associated agent</dt>
-        <dd>Agent's info to follow</dd>
+          <dt>Owner:</dt>
+          <dd><%= @home.owner.name %></dd>
         <% end %>
+
+        <% if @home.agent %>
+          <dt>Agent:</dt>
+          <dd><%= link_to @home.agent.name, show_profile_path(@home.agent) %></dd>
+        <%else%>
+          <dt>associated agent</dt>
+          <dd>Agent's info to follow</dd>
+        <% end %>
+
 </div>
