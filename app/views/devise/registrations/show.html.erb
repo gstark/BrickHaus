@@ -1,10 +1,8 @@
 <div class="container">
-  <p>
-    <%= attachment_image_tag(@user, :profile_image, :fill, size: "300x300", fallback: "silhouette.png") %>
-  </p>
+  <h1><%= @user.name %>'s Profile</h1>
 
   <p>
-    <%= @user.name %>
+    <%= attachment_image_tag(@user, :profile_image, :fill, size: "300x300", fallback: "silhouette.png") %>
   </p>
 
   <p>
