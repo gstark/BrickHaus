@@ -110,7 +110,7 @@
           <td><%= home.baths %></td>
           <td><%= home.square_footage %></td>
           <td><%= home.price %></td>
-          <td><%= home.description %></td>
+          <td><%= home.description.truncate_words(15) %></td>
           <td>
             <%= link_to home do %>
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
