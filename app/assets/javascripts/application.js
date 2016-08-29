@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$().ready(function() {
+  $('#myCarousel').on('slid.bs.carousel', function () {
+    var index = $("#myCarousel div.active").data("index");
+    $(".list-of-homes tr").removeClass("hovered");
+    $(`.list-of-homes tr:nth-child(${index + 1})`).addClass("hovered");
+  });
+});
