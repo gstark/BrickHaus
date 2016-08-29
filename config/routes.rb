@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :user, controllers: { registrations: 'registrations' }
 
   devise_scope :user do
-    get 'user/:id' => 'registrations#show'
+    get 'user/:id' => 'registrations#show', as: "show_profile"
     get 'users'    => 'registrations#index'
   end
 
