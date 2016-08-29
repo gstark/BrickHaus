@@ -5,6 +5,7 @@ class HomesController < ApplicationController
 
   # GET /homes
   def index
+    @homes_image = Home.all
     @homes = params[:search] ? build_response_to_search_params(params) :
                                Home.all.order(price: :asc)
   end
