@@ -58,8 +58,16 @@
   </div>
 </div>
 
+<div class="page-header homepage-homes-section">
+  <!-- What if there were only one or two homes in the whole system, this would be a lie -->
+  <!-- What if there were NO homes in the system, maybe we don't show this at all -->
+  <% if @recent_homes.any? %>
+    <h2>Featured homes:</h2>
+  <% end %>
+</div>
+
 <div class="row">
-<% @last_three.each do |home| %>
+<% @recent_homes.each do |home| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <%= link_to home do %>
