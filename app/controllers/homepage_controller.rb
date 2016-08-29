@@ -6,7 +6,7 @@ class HomepageController < ApplicationController
     unless Home.all.empty?
       @recent_homes = homes.last(3)
     else
-      "Great listings comi"
+      "Great listings coming soon!"
     end
   end
 end
