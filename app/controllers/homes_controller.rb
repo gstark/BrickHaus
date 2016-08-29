@@ -16,13 +16,13 @@ class HomesController < ApplicationController
 
   # GET /homes/new
   def new
-    @agents = User.where('is_agent = true')
+    @agents = User.agents
     @home = Home.new
   end
 
   # GET /homes/1/edit
   def edit
-    @agents = User.where('is_agent = true')
+    @agents = User.agents
     unless @home.user_authorized?(current_user)
       flash[:notice] = 'Only the home owner may edit the home'
       redirect_to homes_path

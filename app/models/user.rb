@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   # Refile profile image for agents
   attachment :profile_image
+
+  # Adding a scope for agents
+  scope :agents, -> { where(is_agent: true)}
 end
