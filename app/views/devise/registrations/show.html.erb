@@ -2,20 +2,20 @@
   <h1><%= @user.name %>'s Profile</h1>
 
   <p>
-    <%= attachment_image_tag(@user, :profile_image, :fill, size: "300x300", fallback: "silhouette.png") %>
+    <%= attachment_image_tag(@user, :profile_image, size: "300x300", fallback: "silhouette.png") %>
   </p>
 
   <p>
-    <%= @user.phone %>
+    <strong>Email:</strong> <%= @user.email %>
   </p>
 
   <p>
-    <%= @user.address %>
+    <strong>Phone:</strong> <%= @user.phone %>
   </p>
 
   <p>
-    <%= @user.email %>
+    <strong>Address:</strong> <%= @user.address %>
   </p>
 
-  <%= link_to "Edit", edit_user_registration_path %>
+  <button class="btn btn-default"><%= link_to "Edit", edit_user_registration_path %></button>
 </div>
