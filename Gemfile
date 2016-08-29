@@ -49,4 +49,6 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'refile-postgres'
-gem 'refile', require: 'refile/rails'
+gem 'refile', github: 'gstark/refile', branch: 'updates-for-rails-5', require: 'refile/rails'
+gem 'refile-mini_magick'
+
