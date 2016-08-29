@@ -3,6 +3,10 @@ class HomepageController < ApplicationController
 
   def index
     homes = Home.all
-    @last_three = homes.last(3)
+    unless Home.all.empty?
+      @recent_homes = homes.last(3)
+    else
+      "Great listings comi"
+    end
   end
 end
