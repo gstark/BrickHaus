@@ -7,31 +7,22 @@
     <h1>Listing homes</h1>
   </div>
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 
-      <% @homes_image.each do |home| %>
+      <% @homes.each do |home| %>
         <li data-target="#myCarousel" data-slide-to="<%= home.id %>"></li>
       <% end %>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <%= image_tag "nature4.jpg" %>
-        <div class="carousel-caption">
-          <h2>BrickHaus</h2>
-        </div>
-      </div>
-
-      <% @homes_image.each do |home| %>
-        <div class="item">
+      <% @homes.each.with_index do |home, i| %>
+        <div data-index="<%= i %>" class="item <%= i == 0 ? "active": "" %>">
           <%= attachment_image_tag(home, :main_image) %>
-          <div class="carousel-caption">
-            <h4><%= home.address %></h4>
-          </div>
+          <div class="carousel-caption"><h4><%= home.address %></h4></div>
         </div>
       <% end %>
     </div>
@@ -87,7 +78,6 @@
       </div>
     </div>
   <% end %>
-
   <div class="table-responsive container">
     <table class="table table-hover">
       <thead>
@@ -103,8 +93,8 @@
       </thead>
 
       <tbody>
-        <%- @homes.each do |home| %>
-        <tr>
+        <%- @homes.each.with_index do |home, index| %>
+        <tr class="<%= index == 0 ? "hovered" : "" %>">
           <td><%= home.address %></td>
           <td><%= home.beds %></td>
           <td><%= home.baths %></td>

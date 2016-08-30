@@ -1,51 +1,73 @@
 <div class="jumbotron">
-  <div class="jumbo-container">
-    <div class="col-lg-10">
-      <h1>Find your next home</h1>
-      <%= form_tag homes_path, class: "form-inline", method: "get" do %>
-        <div class="form-group">
-          <label> Price Min</label>
-          <%= number_field_tag "search[price][min]", class: "form-control" %>
+  <div class="jumbo-container brick-jumbo">
+    <h1>Find your next home</h1>
+      <%= form_tag homes_path, method: "get" do %>
+      <div class="brick-search-container">
+        <div class="brick-search-pair">
+          <div class="form-group">
+            <label> Price Min</label>
+            <%= number_field_tag "search[price][min]", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label> Price Max</label>
+            <%= number_field_tag "search[price][max]", class: "form-control" %>
+          </div>
         </div>
-        <div class="form-group">
-          <label> Price Max</label>
-          <%= number_field_tag "search[price][max]", class: "form-control" %>
+
+        <div class="brick-search-pair">
+          <div class="form-group">
+            <label> Square Ft Min</label>
+            <%= number_field_tag "search[square_footage][min]", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label> Square Ft Max</label>
+            <%= number_field_tag "search[square_footage][max]", class: "form-control" %>
+          </div>
         </div>
-        <div class="form-group">
-          <label> Square Ft Min</label>
-          <%= number_field_tag "search[square_footage][min]", class: "form-control" %>
+
+        <div class="brick-search-pair">
+          <div class="form-group">
+            <label> Beds Min</label>
+            <%= number_field_tag "search[beds][min]", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label> Beds Max</label>
+            <%= number_field_tag "search[beds][max]", class: "form-control" %>
+          </div>
         </div>
-        <div class="form-group">
-          <label> Square Ft Max</label>
-          <%= number_field_tag "search[square_footage][max]", class: "form-control" %>
+
+        <div class="brick-search-pair">
+          <div class="form-group">
+            <label> Baths Min</label>
+            <%= number_field_tag "search[baths][min]", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label> Baths Max</label>
+            <%= number_field_tag "search[baths][max]", class: "form-control" %>
+          </div>
         </div>
-        <div class="form-group">
-          <label> Beds Min</label>
-          <%= number_field_tag "search[beds][min]", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <label> Beds Max</label>
-          <%= number_field_tag "search[beds][max]", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <label> Baths Min</label>
-          <%= number_field_tag "search[baths][min]", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <label> Baths Max</label>
-          <%= number_field_tag "search[baths][max]", class: "form-control" %>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+
+        <div class="brick-search-submit">
+          <div class="form-group">
+              <button type="submit" class="btn btn-default">Submit</button>
           </div>
         </div>
       <% end %>
-    </div>
+
   </div>
 </div>
 
+<div class="page-header homepage-homes-section">
+  <!-- What if there were only one or two homes in the whole system, this would be a lie -->
+  <!-- What if there were NO homes in the system, maybe we don't show this at all -->
+  <% if @recent_homes.any? %>
+    <h2>Featured homes:</h2>
+  <% end %>
+</div>
+
 <div class="row">
-<% @last_three.each do |home| %>
+<% @recent_homes.each do |home| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <%= link_to home do %>
