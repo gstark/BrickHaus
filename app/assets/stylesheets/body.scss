@@ -2,6 +2,18 @@
   background-color: #556F7A;
 }
 
+.homepage-homes-section {
+  h2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #556F7A;
+    text-align: center;
+    font-size: 22px;
+    color: #9d9d9d;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
 .carousel-inner > .item img {
     height: 500px;
     background-size: cover;
@@ -16,4 +28,9 @@
 
 .logo {
   padding-top: 0;
+}
+
+.hovered td {
+  background-color: #556F7A;
+  color: white;
 }

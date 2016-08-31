@@ -15,12 +15,12 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-xs-8 col-sm-6">
-          <%= image_tag attachment_url(@home, :main_image) %>
+          <%= image_tag attachment_url(@home, :main_image, :fill, 300, 300) %>
           <h3><%= @home.beds %> Bedrooms, <%= @home.baths %> bathrooms</h3>
         </div>
         <div class="col-xs-4 col-sm-6">
           <% if @home.additional_image %>
-          <%= image_tag attachment_url(@home, :additional_image) %>
+          <%= image_tag attachment_url(@home, :additional_image, :fill, 300, 300) %>
           <% end %>
         </div>
       </div>
@@ -35,10 +35,16 @@
   <p><%= @home.description %></p>
 
         <% if @home.owner %>
-        <dt>Owner:</dt>
-        <dd><%= @home.owner.name %></dd>
-        <%else%>
-        <dt>associated agent</dt>
-        <dd>Agent's info to follow</dd>
+          <dt>Owner:</dt>
+          <dd><%= @home.owner.name %></dd>
         <% end %>
+
+        <% if @home.agent %>
+          <dt>Agent:</dt>
+          <dd><%= link_to @home.agent.name, show_profile_path(@home.agent) %></dd>
+        <%else%>
+          <dt>associated agent</dt>
+          <dd>Agent's info to follow</dd>
+        <% end %>
+
 </div>

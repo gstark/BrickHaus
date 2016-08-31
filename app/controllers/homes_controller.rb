@@ -5,7 +5,6 @@ class HomesController < ApplicationController
 
   # GET /homes
   def index
-    @homes_image = Home.all
     @homes = params[:search] ? build_response_to_search_params(params) :
                                Home.all.order(price: :asc)
   end
@@ -16,12 +15,17 @@ class HomesController < ApplicationController
 
   # GET /homes/new
   def new
+    @agents = User.agents
     @home = Home.new
   end
 
   # GET /homes/1/edit
   def edit
-    redirect_to homes_path unless @home.user_authorized?(current_user)
+    @agents = User.agents
+    unless @home.user_authorized?(current_user)
+      flash[:notice] = 'Only the home owner may edit the home'
+      redirect_to homes_path
+    end
   end
 
   # POST /homes
@@ -38,7 +42,10 @@ class HomesController < ApplicationController
 
   # PATCH/PUT /homes/1
   def update
-    redirect_to homes_path unless @home.user_authorized?(current_user)
+    unless @home.user_authorized?(current_user)
+      flash[:notice] = 'Only the home owner may edit the home'
+      redirect_to homes_path
+    end
 
     if @home.update(home_params)
       redirect_to @home, notice: 'Home was successfully updated.'
@@ -49,7 +56,10 @@ class HomesController < ApplicationController
 
   # DELETE /homes/1
   def destroy
-    redirect_to homes_path unless @home.user_authorized?(current_user)
+    unless @home.user_authorized?(current_user)
+      flash[:notice] = 'Only the home owner may edit the home'
+      redirect_to homes_path
+    end
 
     @home.delete
     redirect_to homes_url, notice: 'Home was successfully destroyed.'
@@ -62,7 +72,7 @@ class HomesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def home_params
-    params.require(:home).permit(:main_image, :additional_image, :address, :beds, :baths, :square_footage, :price, :description, links_attributes: [ :url, :description ])
+    params.require(:home).permit(:main_image, :additional_image, :address, :beds, :baths, :square_footage, :price, :description, :agent_id, links_attributes: [ :url, :description ])
   end
 
   def build_response_to_search_params(params)

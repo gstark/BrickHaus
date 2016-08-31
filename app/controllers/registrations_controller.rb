@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   def index
-    @users = User.where('is_agent = true')
+    @users = User.agents
   end
 
   def show
