@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class HomesControllerTest < ActionDispatch::IntegrationTest
+  Devise::Test::ControllerHelpers
   setup do
     @home = homes(:one)
   end
