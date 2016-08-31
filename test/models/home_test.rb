@@ -1,16 +1,26 @@
 require 'test_helper'
-require "minitest/autorun"
 
 class HomeTest < ActiveSupport::TestCase
-  # class HomeTest < Minitest::Test
-  # test "the truth" do
-  #   assert true
-  # end
-
-  def test_checking_if_agent_authorized
+  test "The user who owns this home is authorized"
+    # setup
+    user = User.new
     home = Home.new
-    @user = home.user_authorized?(agent)
-    assert_equal home.user_authorized?(agent), @user
+    home.owner = user
+
+    # assert that a home created by a user is authorized
+    assert home.user_authorized?(user)
   end
 
+  test "A home created by a different user isn't authorized" do
+    # Setup
+    owning_user = User.new
+    non_owning_user = User.new
+
+    # Moar setup
+    home = Home.new
+    home.owner = owning_user
+
+    # expectation
+    refute home.user_authorized?(non_owning_user)
+  end
 end
