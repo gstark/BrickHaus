@@ -45,6 +45,8 @@ class HomesController < ApplicationController
     unless @home.user_authorized?(current_user)
       flash[:notice] = 'Only the home owner may edit the home'
       redirect_to homes_path
+
+      return
     end
 
     if @home.update(home_params)
@@ -59,6 +61,8 @@ class HomesController < ApplicationController
     unless @home.user_authorized?(current_user)
       flash[:notice] = 'Only the home owner may edit the home'
       redirect_to homes_path
+
+      return
     end
 
     @home.delete

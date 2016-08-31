@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+not_owned:
   address: MyString
   beds: 1
   baths: 1
@@ -15,3 +15,12 @@ two:
   square_footage: 1
   price: 1
   description: MyString
+
+home_created_by_gavin:
+  address: 123 Main Street
+  beds: 1
+  baths: 2
+  square_footage: 2000
+  price: 1_000_000
+  description: Best Home Evar
+  owner: :gavin
