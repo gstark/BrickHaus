@@ -31,7 +31,7 @@
 
   <div class="row">
     <div class="col-sm-9">
-      <h4><%= @home.square_footage %> square feet and only $<%= @home.price %></h4>
+      <h4><%= @home.square_footage %> square feet and only <%= number_to_currency(@home.price) %></h4>
     </div>
   </div>
   <p><%= @home.description %></p>
