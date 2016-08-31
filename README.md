@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tiy-tpa-ruby/BrickHaus.svg?branch=master)](https://travis-ci.org/tiy-tpa-ruby/BrickHaus)
 
 ______  ______  ___________        ____________         _____   ______   _______        __     __           _____     ______   _____                _____   
 \     \|\     \ \          \      /            \   _____\    \_|\     \  \      \      /  \   /  \        /      |_   \     \  \    \          _____\    \  
