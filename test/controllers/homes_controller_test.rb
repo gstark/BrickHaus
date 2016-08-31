@@ -1,9 +1,12 @@
 require 'test_helper'
 
 class HomesControllerTest < ActionDispatch::IntegrationTest
-  Devise::Test::ControllerHelpers
   setup do
     @home = homes(:one)
+
+    # Login a user with the expected username and password we
+    # created in the users.yml fixture file
+    post user_session_url, params: { user: { email: "gavin@gstark.com" , password: "1234567" } }
   end
 
   test "should get index" do

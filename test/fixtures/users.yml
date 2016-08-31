@@ -9,3 +9,7 @@
 #
 # two: {}
 # column: value
+
+gavin:
+  email: gavin@gstark.com
+  encrypted_password: $2a$11$HLPlJE89SaTG8w5ORENnHeowP6S0aY2btEMUg6MXeTbvEYseeX4B.
