@@ -1,8 +1,18 @@
-<div class="container">
-  <h1>Agents who can help</h1>
-  <% @users.each do |user| %>
-    <p>
-      <%= link_to user.name, show_profile_path(user) %>
-    </p>
-  <% end %>
+<div class="jumbotron agent-jumbotron">
+  <div class="jumbo-container">
+    <div class="col-lg-10">
+    <h2>Put your dreams are in trusted hands. <br>
+      Agents ready to help:</h2>
+      <% @users.each do |user| %>
+        <div class="agents">
+          <p>
+            <h3>  <%= link_to show_profile_path(user) do %>
+                    <%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "silhouette.png") %>
+                    <%= user.name %>
+                  <% end %></h3>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
