@@ -23,15 +23,29 @@
 // body {
 //   padding-top: 20px;
 // }
-.jumbotron {
+.homepage-jumbotron {
   height: 450px;
   margin-top:-10px;
   background-image: image-url("Jumbotron.jpg");
   background-position: center;
 }
+
+.agent-jumbotron {
+  height: 450px;
+  margin-top:-10px;
+  background-image: image-url("agent_background.jpg");
+  background-position: center;
+  img { margin-right: 10px};
+
+}
+
 .jumbo-container {
   margin: auto;
-  text-align: center;
   width: 100%;
   color: white;
+}
+
+.agents {
+  display: flex;
+  align-items: center;
 }

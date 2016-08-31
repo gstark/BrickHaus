@@ -1,17 +1,27 @@
-<div class="jumbotron">
-  <div class="jumbo-container brick-jumbo">
-    <h1>Find your next home</h1>
-      <%= form_tag homes_path, method: "get" do %>
-      <div class="brick-search-container">
-        <div class="brick-search-pair">
-          <div class="form-group">
-            <label> Price Min</label>
-            <%= number_field_tag "search[price][min]", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <label> Price Max</label>
-            <%= number_field_tag "search[price][max]", class: "form-control" %>
-          </div>
+<div class="jumbotron homepage-jumbotron">
+  <div class="jumbo-container">
+    <div class="col-lg-10">
+      <h1>Find your next home</h1>
+      <%= form_tag homes_path, class: "form-inline", method: "get" do %>
+        <div class="form-group">
+          <label> Price Min</label>
+          <%= number_field_tag "search[price][min]", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label> Price Max</label>
+          <%= number_field_tag "search[price][max]", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label> Square Ft Min</label>
+          <%= number_field_tag "search[square_footage][min]", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label> Square Ft Max</label>
+          <%= number_field_tag "search[square_footage][max]", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label> Beds Min</label>
+          <%= number_field_tag "search[beds][min]", class: "form-control" %>
         </div>
 
         <div class="brick-search-pair">
@@ -71,7 +81,7 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <%= link_to home do %>
-      <%= attachment_image_tag(home, :main_image) %>
+        <%= attachment_image_tag(home, :main_image) %>
       <% end%>
       <div class="caption">
         <%= link_to home do %>
