@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class HomeTest < ActiveSupport::TestCase
-  test "The user who owns this home is authorized"
+  test "The user who owns this home is authorized" do
     # setup
     user = User.new
     home = Home.new
